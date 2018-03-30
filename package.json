@@ -5,16 +5,22 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "hmr": "npm run start -- --hmr -e=hmr",
+    "start:hmr": "npm run start -- --hmr -e=hmr",
+    "start:fr": "npm run start -- --aot --locale fr --i18n-format xlf --i18n-file src/locale/messages.fr.xlf --missing-translation error",    
     "build": "ng build --prod",
+    "build:fr": "npm run build -- --output-path dist/fr --base-href /fr/ --locale fr --i18n-format xlf --i18n-file src/locale/messages.fr.xlf --missing-translation error",
+    "build:i18nall": "for lang in en es fr; do npm run build -- --output-path=dist/$lang --base-href /$lang/ --locale=$lang --i18n-format=xlf --i18n-file=src/locale/messages.$lang.xlf; done",
+    "build:i18nallrelease": "for lang in en es fr; do npm run build -- --output-path=dist/$lang --base-href /$GITHUB_REPO/$lang/ --locale=$lang --i18n-format=xlf --i18n-file=src/locale/messages.$lang.xlf; done",
     "build:watch": "npm run build -- -- -sm true --watch",
+    "build:release": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build -- --base-href /$GITHUB_REPO/",
+    "build:i18nrelease": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build:i18nallrelease",
     "test": "ng test",
     "test:coverage": "npm run test -- --watch=false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "lite-server --baseDir='dist'",
+    "dev": "lite-server --baseDir='dist/en'",
     "dev:watch": "concurrently \"npm run build:watch\" \"npm run dev\" ",
-    "build:release": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build -- --base-href /$GITHUB_REPO/"
+    "i18n:extract": "ng xi18n --output-path src/locale"
   },
   "private": true,
   "dependencies": {
