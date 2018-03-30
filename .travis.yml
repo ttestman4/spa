@@ -27,7 +27,9 @@ deploy:
   verbose: false
   local-dir: dist
   on:
-    branch: develop
+    # branch: develop
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^develop|master$
 
 script:
   # Use Chromium instead of Chrome.
