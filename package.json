@@ -8,11 +8,12 @@
     "build": "ng build --prod",
     "build:watch": "npm run build -- -- -sm true --watch",
     "test": "ng test",
+    "test:coverage": "npm run test -- --watch=false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "lite-server --baseDir='dist'",
     "dev:watch": "concurrently \"npm run build:watch\" \"npm run dev\" ",
-    "build:release": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build --base-href /$GITHUB_REPO/"
+    "build:release": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build -- --base-href /$GITHUB_REPO/"
   },
   "private": true,
   "dependencies": {
