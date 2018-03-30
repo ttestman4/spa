@@ -12,7 +12,7 @@
     "build:i18nall": "for lang in en es fr; do npm run build -- --output-path=dist/$lang --base-href /$lang/ --locale=$lang --i18n-format=xlf --i18n-file=src/locale/messages.$lang.xlf; done",
     "build:i18nallrelease": "for lang in en es fr; do npm run build -- --output-path=dist/$lang --base-href /$GITHUB_REPO/$lang/ --locale=$lang --i18n-format=xlf --i18n-file=src/locale/messages.$lang.xlf; done",
     "build:watch": "npm run build -- -- -sm true --watch",
-    "build:i18nrelease": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build:i18nallrelease",
+    "build:release": "npm run lint && npm run test -- --single-run --no-progress --browser=ChromeNoSandbox && npm run e2e -- --no-progress --config=protractor-ci.conf.js && npm run build:i18nallrelease",
     "test": "ng test",
     "test:coverage": "npm run test -- --watch=false --code-coverage",
     "lint": "ng lint",
