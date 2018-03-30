@@ -34,4 +34,4 @@ deploy:
 script:
   # Use Chromium instead of Chrome.
   - export CHROME_BIN=chromium-browser
-  - xvfb-run -a npm run build:release
+  - xvfb-run -a npm run build:i18nrelease
