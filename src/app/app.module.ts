@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NonFunctionalModule } from './non-functional/non-functional.module';
+import { ReferenceModule } from './reference/reference.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { NonFunctionalModule } from './non-functional/non-functional.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NonFunctionalModule
+    NonFunctionalModule,
+    ReferenceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
