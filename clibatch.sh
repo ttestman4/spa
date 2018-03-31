@@ -26,8 +26,8 @@ set -x
 # npm run ng -- set defaults.component.changeDetection OnPush
 # npm run ng -- set defaults.component.viewEncapsulation None
 npm run ng -- g module nonFunctional -m app.module
-npm run ng -- g module non-functional/rootState -m non-functional/non-functional.module -d
-npm run ng -- g store root --root --module non-functional/root-state -d
+npm run ng -- g module non-functional/rootState -m non-functional/non-functional.module
+npm run ng -- g store root --root --module non-functional/root-state -d --state-path non-functional/root-state 
 # npm run ng -- g module non-functional/services -m non-functional/non-functional.module
 # npm run ng -- g module non-functional/services/logger -m non-functional/services/services.module
 # npm run ng -- g service non-functional/services/logger/logger -m non-functional/services/logger/logger.module
