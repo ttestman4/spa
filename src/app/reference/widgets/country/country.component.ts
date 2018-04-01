@@ -39,4 +39,14 @@ export class CountryComponent implements OnInit, OnDestroy {
     }
   }
 
+  addCountry(id: string, name: string) {
+    this.store.dispatch(new fromReference.UpsertCountry({
+      country:
+        {
+          id: id,
+          changes:
+            { name: name }
+        }
+    }));
+  }
 }

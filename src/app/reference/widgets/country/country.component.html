@@ -4,3 +4,6 @@
 <ul>
   <li *ngFor="let country of countries;">{{country.name}}</li>
 </ul>
+<input type="text" #ctId >
+<input type="text" #ctName >
+<button (click)="addCountry(ctId.value, ctName.value)">Add</button>
