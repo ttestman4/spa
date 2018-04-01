@@ -6,12 +6,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { RootEffects } from './root.effects';
+export { State } from '../root-state';
 
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.stopStoreDebugger ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([RootEffects])
   ],
   declarations: []

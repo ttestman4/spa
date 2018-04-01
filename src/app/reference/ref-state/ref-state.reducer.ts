@@ -1,17 +1,15 @@
-import { createSelector, createFeatureSelector, ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 import * as fromCountry from './country/country.reducer';
+import * as fromRoot from '../../non-functional/root-state/root-state.module';
 
-export interface State {
+export interface ReferenceState {
   country: fromCountry.State;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export interface State extends fromRoot.State {
+  reference: ReferenceState;
+}
+
+export const reducers: ActionReducerMap<ReferenceState> = {
   country: fromCountry.reducer,
 };
-
-const selectCountryState = createFeatureSelector<fromCountry.State>('country');
-
-export const selectCountryIds = createSelector(selectCountryState, fromCountry.selectIds);
-export const selectCountryEntities = createSelector(selectCountryState, fromCountry.selectEntities);
-export const selectAllCountries = createSelector(selectCountryState, fromCountry.selectAll);
-export const selectCountryTotal = createSelector(selectCountryState, fromCountry.selectTotal);

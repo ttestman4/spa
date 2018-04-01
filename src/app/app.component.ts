@@ -4,7 +4,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {

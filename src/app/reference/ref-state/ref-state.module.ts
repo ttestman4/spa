@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import * as fromRefState from './ref-state.reducer';
+import { reducers } from './ref-state.reducer';
+export * from './country';
+export * from './ref-state.selectors';
+export { State } from './ref-state.reducer';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('refState', fromRefState.reducers),
+    StoreModule.forFeature('refState', reducers),
   ],
   declarations: []
 })

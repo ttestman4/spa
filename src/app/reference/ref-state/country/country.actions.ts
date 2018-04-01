@@ -3,84 +3,84 @@ import { Update } from '@ngrx/entity';
 import { Country } from './country.model';
 
 export enum CountryActionTypes {
-  LoadCountrys = '[Country] Load Countrys',
+  LoadCountries = '[Country] Load Countries',
   AddCountry = '[Country] Add Country',
   UpsertCountry = '[Country] Upsert Country',
-  AddCountrys = '[Country] Add Countrys',
-  UpsertCountrys = '[Country] Upsert Countrys',
+  AddCountries = '[Country] Add Countries',
+  UpsertCountries = '[Country] Upsert Countries',
   UpdateCountry = '[Country] Update Country',
-  UpdateCountrys = '[Country] Update Countrys',
+  UpdateCountries = '[Country] Update Countries',
   DeleteCountry = '[Country] Delete Country',
-  DeleteCountrys = '[Country] Delete Countrys',
-  ClearCountrys = '[Country] Clear Countrys'
+  DeleteCountries = '[Country] Delete Countries',
+  ClearCountries = '[Country] Clear Countries'
 }
 
-export class LoadCountrys implements Action {
-  readonly type = CountryActionTypes.LoadCountrys;
+export class LoadCountries implements Action {
+  readonly type = CountryActionTypes.LoadCountries;
 
-  constructor(public payload: { countrys: Country[] }) {}
+  constructor(public payload: { countries: Country[] }) { }
 }
 
 export class AddCountry implements Action {
   readonly type = CountryActionTypes.AddCountry;
 
-  constructor(public payload: { country: Country }) {}
+  constructor(public payload: { country: Country }) { }
 }
 
 export class UpsertCountry implements Action {
   readonly type = CountryActionTypes.UpsertCountry;
 
-  constructor(public payload: { country: Update<Country> }) {}
+  constructor(public payload: { country: Update<Country> }) { }
 }
 
-export class AddCountrys implements Action {
-  readonly type = CountryActionTypes.AddCountrys;
+export class AddCountries implements Action {
+  readonly type = CountryActionTypes.AddCountries;
 
-  constructor(public payload: { countrys: Country[] }) {}
+  constructor(public payload: { countries: Country[] }) { }
 }
 
-export class UpsertCountrys implements Action {
-  readonly type = CountryActionTypes.UpsertCountrys;
+export class UpsertCountries implements Action {
+  readonly type = CountryActionTypes.UpsertCountries;
 
-  constructor(public payload: { countrys: Update<Country>[] }) {}
+  constructor(public payload: { countries: Update<Country>[] }) { }
 }
 
 export class UpdateCountry implements Action {
   readonly type = CountryActionTypes.UpdateCountry;
 
-  constructor(public payload: { country: Update<Country> }) {}
+  constructor(public payload: { country: Update<Country> }) { }
 }
 
-export class UpdateCountrys implements Action {
-  readonly type = CountryActionTypes.UpdateCountrys;
+export class UpdateCountries implements Action {
+  readonly type = CountryActionTypes.UpdateCountries;
 
-  constructor(public payload: { countrys: Update<Country>[] }) {}
+  constructor(public payload: { countries: Update<Country>[] }) { }
 }
 
 export class DeleteCountry implements Action {
   readonly type = CountryActionTypes.DeleteCountry;
 
-  constructor(public payload: { id: string }) {}
+  constructor(public payload: { id: string }) { }
 }
 
-export class DeleteCountrys implements Action {
-  readonly type = CountryActionTypes.DeleteCountrys;
+export class DeleteCountries implements Action {
+  readonly type = CountryActionTypes.DeleteCountries;
 
-  constructor(public payload: { ids: string[] }) {}
+  constructor(public payload: { ids: string[] }) { }
 }
 
-export class ClearCountrys implements Action {
-  readonly type = CountryActionTypes.ClearCountrys;
+export class ClearCountries implements Action {
+  readonly type = CountryActionTypes.ClearCountries;
 }
 
 export type CountryActions =
- LoadCountrys
- | AddCountry
- | UpsertCountry
- | AddCountrys
- | UpsertCountrys
- | UpdateCountry
- | UpdateCountrys
- | DeleteCountry
- | DeleteCountrys
- | ClearCountrys;
+  LoadCountries
+  | AddCountry
+  | UpsertCountry
+  | AddCountries
+  | UpsertCountries
+  | UpdateCountry
+  | UpdateCountries
+  | DeleteCountry
+  | DeleteCountries
+  | ClearCountries;

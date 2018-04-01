@@ -46,6 +46,10 @@ set -x
 # npm run ng -- g module reference/refState -m reference/reference.module
 # npm run ng -- g feature reference/ref-state/refState -m ref-state.module
 # npm run ng -- g entity reference/ref-state/country -r ref-state.reducer.ts --flat false
+# npm run ng -- g module reference/widgets -m reference/reference.module
+# npm run ng -- g module reference/widgets/country -m reference/widgets/widgets.module
+npm run ng -- g component reference/widgets/country -m reference/widgets/country/country.module --export
+
 
 
 
