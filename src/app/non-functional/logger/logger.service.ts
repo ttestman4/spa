@@ -84,7 +84,7 @@ export class LoggerService {
 
         return next;
       } catch (e) {
-        return `The additional[${idx}] value could not be parsed using JSON.stringify().`
+        return `The additional[${idx}] value could not be parsed using JSON.stringify().`;
       }
     });
   }

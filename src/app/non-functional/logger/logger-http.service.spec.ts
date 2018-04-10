@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 import { LoggerHttpService } from './logger-http.service';

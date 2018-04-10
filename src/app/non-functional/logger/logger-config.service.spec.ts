@@ -53,7 +53,7 @@ describe('LoggerConfigService', () => {
     expect(config).toEqual(defaultConfig);
   }));
 
-  configTest.forEach((val, index) => {
+  configTest.forEach((val) => {
     it(val.message + 'when updated via updateConfig function', inject([LoggerConfigService],
       (service: LoggerConfigService) => {
         service.updateConfig(val.customConfig);
@@ -65,7 +65,7 @@ describe('LoggerConfigService', () => {
 });
 
 describe('LoggerConfigService with custom config', () => {
-  configTest.forEach((val, index) => {
+  configTest.forEach((val) => {
     it(val.message + 'when injected via provider', () => {
       TestBed.configureTestingModule({
         providers: [
