@@ -48,9 +48,10 @@ set -x
 # npm run ng -- g entity reference/ref-state/country -r ref-state.reducer.ts --flat false
 # npm run ng -- g module reference/widgets -m reference/reference.module
 # npm run ng -- g module reference/widgets/country -m reference/widgets/widgets.module
-npm run ng -- g component reference/widgets/country -m reference/widgets/country/country.module --export
-
-
+# npm run ng -- g component reference/widgets/country -m reference/widgets/country/country.module --export
+# npm run ng -- g module non-functional/logger -m non-functional/non-functional.module
+# npm run ng -- g enum non-functionerLevel  -d
+# npm run ng -- g service non-functional/logger/logger -m non-functional/logger/logger.module
 
 
 
