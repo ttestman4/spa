@@ -7,7 +7,7 @@ export class LoggerHttpService {
 
   constructor(private readonly http: HttpClient) { }
 
-  logOnServer(url: string,
+  public logOnServer(url: string,
     message: string,
     additional: any[],
     timestamp: string, logLevel: string): Observable<any> {
