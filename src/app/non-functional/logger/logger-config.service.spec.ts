@@ -1,28 +1,28 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { LoggerConfigService } from './logger-config.service';
-import { LoggerConfig, defaultConfig } from './logger-config';
-import { LoggerLevel } from './logger-level.enum';
+import { defaultConfig} from './logger-config';
+import * as fromLogger from './logger.module';
 
-const configTest: Array<{ message: string, customConfig: Partial<LoggerConfig> }> = [
+const configTest: Array<{ message: string, customConfig: Partial<fromLogger.LoggerConfig> }> = [
   {
     message: 'should have all custom config',
     customConfig: {
-      level: LoggerLevel.WARN,
-      serverLogLevel: LoggerLevel.ERROR,
+      level: fromLogger.LoggerLevel.WARN,
+      serverLogLevel: fromLogger.LoggerLevel.ERROR,
       serverLoggingUrl: 'http://foo.bar',
     }
   },
   {
     message: 'should have default + custom level config',
     customConfig: {
-      level: LoggerLevel.WARN,
+      level: fromLogger.LoggerLevel.WARN,
     }
   },
   {
     message: 'should have default + custom server log level config',
     customConfig: {
-      serverLogLevel: LoggerLevel.ERROR,
+      serverLogLevel: fromLogger.LoggerLevel.ERROR,
     }
   },
   {
@@ -36,10 +36,7 @@ const configTest: Array<{ message: string, customConfig: Partial<LoggerConfig> }
 describe('LoggerConfigService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        LoggerConfigService,
-        LoggerConfig
-      ]
+      imports: [fromLogger.LoggerModule],
     });
   });
 
@@ -68,10 +65,11 @@ describe('LoggerConfigService with custom config', () => {
   configTest.forEach((val) => {
     it(val.message + 'when injected via provider', () => {
       TestBed.configureTestingModule({
+        imports: [fromLogger.LoggerModule],
         providers: [
           LoggerConfigService,
           {
-            provide: LoggerConfig, useValue: val.customConfig
+            provide: fromLogger.LoggerConfig, useValue: val.customConfig
           }
         ]
       });
