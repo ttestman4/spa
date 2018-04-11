@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpClientTestingModule} from '@angular/common/http/testing';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { LoggerHttpService } from './logger-http.service';
 
@@ -9,7 +9,7 @@ describe('LoggerHttpService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ LoggerHttpService]
+      providers: [LoggerHttpService]
     });
     http = TestBed.get(HttpClient);
     spyOn(http, 'post');
@@ -17,12 +17,13 @@ describe('LoggerHttpService', () => {
 
   it('should be created', inject([LoggerHttpService], (service: LoggerHttpService) => {
     expect(service).toBeTruthy();
-    service.logOnServer('url', 'message', [], 'timestamp', 'Error');
+    const additional: any = [];
+    service.logOnServer('url', 'message', additional, 'timestamp', 'Error');
     expect(http.post).toHaveBeenCalled();
     const body = {
       level: 'Error',
       message: 'message',
-      additional: [],
+      additional: additional,
       timestamp: 'timestamp'
     };
 
